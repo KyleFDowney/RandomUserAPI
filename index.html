@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Random User</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+  </head>
+
+  <body>
+    <h1>Dossiers</h1>
+    <ul id="people"></ul>
+  </body>
+
+  <script>
+    function createNode(element) {
+      return document.createElement(element);
+    }
+
+    function append(parent, el) {
+      return parent.appendChild(el);
+    }
+
+    const ul = document.getElementById("people");
+    const url = "https://randomuser.me/api/?results=10";
+    fetch(url)
+      .then(resp => resp.json())
+      .then(function(data) {
+        let people = data.results;
+        return people.map(function(p) {
+          let li = createNode("li"),
+            img = createNode("img"),
+            span = createNode("span");
+          img.src = p.picture.large;
+          span.innerHTML = `<h2>${p.name.title}. ${p.name.first} ${p.name.last}</h2>
+<p><b>Date of Birth:</b> ${p.dob.date}</p>
+<p><b>Age:</b> ${p.dob.age} <b>Sex:</b> ${p.gender}</p>
+<p>
+  <b>Location:</b> ${p.location.city}, ${p.location.state}.
+  ${p.location.country}
+</p>
+<p><b>Cell Phone:</b> ${p.cell}</p>
+<p><b>E-Mail:</b> ${p.email}</p>
+<p><b>ID:</b> ${p.id.name}-${p.id.value}</p>`;
+          append(li, img);
+          append(li, span);
+          append(ul, li);
+        });
+      })
+      .catch(function(error) {
+        console.log(JSON.stringify(error));
+      });
+  </script>
+</html>
