@@ -14,7 +14,9 @@ li h2 {
 ul {
   list-style-type: none;
   font-family: Helvetica, sans-serif;
-  display: inline-block;
+  margin: auto;
+  padding: 0;
+  max-width: 35em;
 }
 
 ul li span div {
@@ -30,13 +32,16 @@ ul li {
 }
 
 li span {
-  display: inline-block;
+  display: block;
+  width: calc(100% - 141px);
+  overflow: auto;
 }
 
 li img {
   border-radius: 100%;
   border: ghostwhite solid 0.2em;
-  display: inline-block;
+  /* display: inline-block; */
   vertical-align: top;
   margin: 0.2em;
+  float: left;
 }

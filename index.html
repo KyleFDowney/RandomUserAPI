@@ -22,17 +22,39 @@
     }
 
     function renderProfile(person) {
-      return `
-      <h2>${person.name.title}. ${person.name.first} ${person.name.last}</h2>
-      <div>
-        <p><b>Date of Birth:</b> ${person.dob.date}</p>
-        <p><b>Age:</b> ${person.dob.age} <b>Sex:</b> ${person.gender}</p>
-        <p><b>Location:</b> ${person.location.city}, ${person.location.state}. ${person.location.country}</p>
-        <p><b>Cell Phone:</b> ${person.cell}</p>
-        <p><b>E-Mail:</b> ${person.email}</p>
-        <p><b>ID:</b> ${person.id.name}-${person.id.value}</p>
-      </div>
+      `
+        <div>
+          <span>text</span>
+          ${
+            person.location.country
+              ? `<span>${person.location.country}</span>`
+              : ``
+          }
+        </div>
       `;
+
+      var profileName = `<h2>${person.name.title}. ${person.name.first} ${person.name.last}</h2>`;
+      profileDivOpen = `<div>`;
+      profileDOB = `<p><b>Date of Birth:</b> ${new Date(
+        person.dob.date
+      ).toUTCString()}</p>`;
+      profileAgeSex = `<p><b>Age:</b> ${person.dob.age} <b>Sex:</b> ${person.gender}</p>`;
+      profileLocationCity = `<p><b>Location:</b> ${person.location.city}, ${person.location.state}.`;
+      profileLocationCountry = ``;
+      // if (person.location.country != undefined) {
+      profileLocationCountry = ` ${person.location.country}`;
+      // }
+      profileCell = `</p>   <p><b>Cell Phone:</b> ${person.cell}</p>`;
+      profileEmail = `<p><b>E-Mail:</b> ${person.email}</p>`;
+      profileID = `<p><b>---No ID associated</b></p>`;
+      if (person.id.value != null) {
+        profileID = `<p><b>ID:</b> ${person.id.name} ${person.id.value}</p>`;
+      }
+      profileDivClose = `</div>`;
+
+      profileRendered = `${profileName}${profileDivOpen}${profileDOB}${profileAgeSex}${profileLocationCity}${profileLocationCountry}${profileCell}${profileEmail}${profileID}${profileDivClose}`;
+
+      return profileRendered;
     }
 
     const ul = document.getElementById("people");
