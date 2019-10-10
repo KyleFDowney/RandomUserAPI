@@ -24,12 +24,14 @@
     function renderProfile(person) {
       return `
       <h2>${person.name.title}. ${person.name.first} ${person.name.last}</h2>
-      <p><b>Date of Birth:</b> ${person.dob.date}</p>
-      <p><b>Age:</b> ${person.dob.age} <b>Sex:</b> ${person.gender}</p>
-      <p><b>Location:</b> ${person.location.city}, ${person.location.state}. ${person.location.country}</p>
-      <p><b>Cell Phone:</b> ${person.cell}</p>
-      <p><b>E-Mail:</b> ${person.email}</p>
-      <p><b>ID:</b> ${person.id.name}-${person.id.value}</p>
+      <div>
+        <p><b>Date of Birth:</b> ${person.dob.date}</p>
+        <p><b>Age:</b> ${person.dob.age} <b>Sex:</b> ${person.gender}</p>
+        <p><b>Location:</b> ${person.location.city}, ${person.location.state}. ${person.location.country}</p>
+        <p><b>Cell Phone:</b> ${person.cell}</p>
+        <p><b>E-Mail:</b> ${person.email}</p>
+        <p><b>ID:</b> ${person.id.name}-${person.id.value}</p>
+      </div>
       `;
     }
 
