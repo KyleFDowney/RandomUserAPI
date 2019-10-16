@@ -33,7 +33,7 @@
         </div>
       `;
 
-      var profileName = `<h2>${person.name.title}. ${person.name.first} ${person.name.last}</h2>`;
+      var profileName = `<div><h2>${person.name.title}. ${person.name.first} ${person.name.last}</h2><hr/>`;
       profileDivOpen = `<div>`;
       profileDOB = `<p><b>Date of Birth:</b> ${new Date(
         person.dob.date
@@ -50,7 +50,7 @@
       if (person.id.value != null) {
         profileID = `<p><b>ID:</b> ${person.id.name} ${person.id.value}</p>`;
       }
-      profileDivClose = `</div>`;
+      profileDivClose = `</div></div>`;
 
       profileRendered = `${profileName}${profileDivOpen}${profileDOB}${profileAgeSex}${profileLocationCity}${profileLocationCountry}${profileCell}${profileEmail}${profileID}${profileDivClose}`;
 

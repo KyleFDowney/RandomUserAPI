@@ -11,17 +11,32 @@ li h2 {
   text-align: center;
 }
 
+li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+  flex: 1;
+}
+
+li hr {
+  border-top: solid black 1px;
+  border-bottom: solid black 1px;
+}
+
 ul {
   list-style-type: none;
   font-family: Helvetica, sans-serif;
   margin: auto;
   padding: 0;
   max-width: 35em;
+  display: flex;
+  flex-direction: column;
 }
 
-ul li span div {
-  border-top: solid black 0.1em;
+ul li span > div {
   margin: auto;
+  padding-left: 1em;
 }
 
 ul li {
@@ -32,16 +47,10 @@ ul li {
 }
 
 li span {
-  display: block;
-  width: calc(100% - 141px);
-  overflow: auto;
 }
 
 li img {
   border-radius: 100%;
   border: ghostwhite solid 0.2em;
-  /* display: inline-block; */
-  vertical-align: top;
   margin: 0.2em;
-  float: left;
 }
