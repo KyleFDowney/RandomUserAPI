@@ -15,8 +15,9 @@ li {
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 10px;
   flex: 1;
+  min-width: 440px;
+  max-width: 540px;
 }
 
 li hr {
@@ -27,22 +28,21 @@ li hr {
 ul {
   list-style-type: none;
   font-family: Helvetica, sans-serif;
-  margin: auto;
   padding: 0;
-  max-width: 35em;
+  flex-wrap: wrap;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
 }
 
 ul li span > div {
-  margin: auto;
   padding-left: 1em;
 }
 
 ul li {
   border: solid lightslategray 0.4em;
   border-radius: 1em;
-  margin: 0.5em auto;
+  margin: 0.5em;
   background-color: rgb(128, 146, 165);
 }
 
